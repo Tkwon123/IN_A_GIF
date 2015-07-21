@@ -2,18 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* .card-container {
-	font-family: "Times New Roman", Times, serif;
+
+.picture{
+
 }
 
-.card {
-	width: 200px;
-	height: 300px;
-	background: blue; 
-	margin: 2em
-} */
+
+#bucket {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 6em
+}
 
 
+/* 
 .isotope {
 }
 
@@ -45,4 +48,4 @@
   height: 100%;
   background: #e6e5e4;
   border: 2px solid #b6b5b4;
-}
+} */
