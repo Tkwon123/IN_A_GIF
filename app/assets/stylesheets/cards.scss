@@ -2,17 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.jumbotron {
+}
 
-.picture{
+.image{
+}
+
+#picture1 {
 
 }
 
+#picture2 {
+
+}
+
+#score1{
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+#score2{
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+}
 
 #bucket {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 6em
 }
 
 
