@@ -7,7 +7,7 @@ module Giphy
 		attr_accessor :json
 
 		def initialize
-			@request_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat'
+			@request_url = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny'
 		end
 
 		def get_data(num_requests)

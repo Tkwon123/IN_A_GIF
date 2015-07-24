@@ -1,30 +1,72 @@
 $(function(){
-	$('.picture').on('click', function(e){
-		var image = $(this).parent().parent();
-		var score1 = $('#score1').html;
-		var score2 = $('#score2').html;
-		$(image).fadeOut(500);
-		$('#bucket').hide()
-			.append(image.html())
+	$('#image1, #image2').on('click', function(e){
+		var $selection = $(this);
+		var $placeholder = $selection.attr('id');
+	    /*Scoring*/
+		$placeholder === 'image1' ? increment('image2') : increment('image1');
+
+		/*Image placement*/
+		$selection.fadeOut(500);
+
+		var new_score = parseInt($selection.find('.score').html());
+		var $voted_on = $('#bucket').children('.image-container');
+		var new_image = $selection.html();
+
+		var counter = 0;
+		var searching = true;
+
+		if ($voted_on.length === 0){
+			$('#bucket').hide()
+				.append($selection.html())
+				.fadeIn(500);
+		} else {
+			do  {
+				var compare_container = $('#bucket').find('.image-container')[counter];
+				var compare_score = parseInt($(compare_container).find('.score').html());
+				alert(compare_score);
+			/*	if (typeof compare_score === 'undefined') {compare_score = 0;}*/
+				if (new_score >= compare_score){
+						$(compare_container).before(new_image);
+						searching = false;
+					}
+				counter++;
+			}
+			while (searching && counter <= $voted_on.length);
+		}
+
+				/*if (new_score >= compare_score){
+					alert(new_score + " : " + compare_score);
+					console.log(index);
+				}
+				});
+		}*/
+
+		/*Inserting new image in here*/
+/*		var new_item = $('#bucket').hide()
+			.append($selection.html())
 			.fadeIn(500);
-	    $.ajax({
-	    	url: "/new_image", 
-	    	success: function(result){
-	    		$('#image1').html( $(result).find('#new_image') );
-		    },
-		    error: function(result){
-		    	alert('fail');
-		    }
-		});
+*/
+
+		/*Pull a new photo into the site*/
+				    $.ajax({
+				    	url: "/new_image", 
+				    	success: function(result){
+				    		var $result = $(result).filter('#new-image').children();
+				    		$($selection).html($result).fadeIn(500);
+					    },
+					    error: function(result){
+					    	alert('fail');
+					    }
+					});
 	});
 });
 
-function selected_picture(e){
-	var selection = (e.target.id);
-	selection === 'picture1' ? increment('picture1') : increment('picture2');
-}
+
 
 function increment(selected){
+	var current_score = parseInt($('#'+selected).find('.score').html());
+	current_score += 1;
+	$('#'+selected).find('.score').html(current_score);
 }
 
 function test(){
@@ -40,4 +82,4 @@ function test(){
 		    	alert('fail');
 		    }
 		});
-}
+	}
