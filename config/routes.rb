@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'cards#index'
   get 'new_image' => 'cards#new_image'
+  get 'new_search' => 'cards#new_search'
+  get '(:search)', to: 'cards#search', as: 'search'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

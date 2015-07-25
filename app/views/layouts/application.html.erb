@@ -1,12 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Animeme</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
+<div class="jumbotron text-center">
+	<h1>IN A GIF</h1>
+	<% if @search %>
+		<h3>Currenting searching for: <span id="last-search"><%= @search %></span></h3>
+	<% else %>
+		<h3>Kill an image, keep the other!</h3>
+	<% end %> 
+	<%= form_tag(new_search_path(@search), method: "get") do %>
+		<%= text_field_tag :search, params[:search], placeholder:"Enter a topic" %>
+		<%= submit_tag "Search", name: nil %>
+	<% end %>
+</div>
+
+<div class="jumbotron">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<div id="image1">	
+					<!-- FIRST IMAGE -->
+					<div class="image-container">
+						<div class="panel panel-default">
+							<%= image_tag(@images[0], class: 'picture center-block') %>
+						</div>
+						<div class="panel panel-footer">
+							<div class="row scoreboard">
+								Current Score: <span class="score"> 0 </span>
+							</div>
+						</div>
+					</div>							
+				</div>				
+			</div>
+
+			<div class="col-md-2">
+			</div>
+
+			<div class="col-md-5">
+				<div id="image2">
+				<!-- SECOND IMAGE -->
+					<div class="image-container">
+						<div class="panel panel-default">
+							<%= image_tag(@images[1], class: 'picture center-block') %>
+						</div>
+						<div class="panel panel-footer">
+							<div class="row scoreboard">
+								Current Score: <span class="score"> 0 </span>
+							</div>
+						</div>
+					</div>
+				</div>						
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- NEW PICTURES WILL ENTER HERE -->
+<div class="container">
+	<div id="bucket">
+	</div>
+</div>
 
 <%= yield %>
 
