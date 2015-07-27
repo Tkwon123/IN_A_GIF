@@ -2,12 +2,11 @@ $(function(){
 	$('#image1, #image2').on('click', function(e){
 		var $selection = $(this);
 
-		
+		/*Will need to remember where the select image was located*/
 		var $placeholder = $selection.attr('id');
-	    /*Scoring*/
+
 		$placeholder === 'image1' ? increment('image2') : increment('image1');
 
-		/*Image placement*/
 		$selection.fadeOut(500);
 
 		var new_score = parseInt($selection.find('.score').html());
@@ -37,28 +36,36 @@ $(function(){
 
 
 
-		/*AJAX WEB PULL */
+		var lastSearch = $('#last-search').html();
 
-					var lastSearch = $('#last-search').html();
-				    $.ajax({
-				    	type: 'get',
-				    	url: "/new_image",
-				    	data: {'search' : lastSearch},
-				    	success: function(result){
-				    		var $result = $(result).filter('#new-image').children();
-				    		$($selection).html($result).fadeIn(500);
-					    },
-					    error: function(jqXHR, textStatus, errorThrown){
-					    	alert("That's embarrassing. Something went wrong!");
-					    	data = $.parseJSON(jqXHR.responseText);
-						    console.log(jqXHR);
-						    console.log(textStatus);
-						    console.log(errorThrown);
-					    }
-					});
+		function sizedImage(imgSize, result){
+			imgSize > 500 ? requestImage() : $($selection).html(result).fadeIn(500);
+			}
+
+	    var requestImage = function() {
+	    	$.ajax({
+		    	type: 'get',
+		    	url: "/new_image",
+		    	data: {'search' : lastSearch},
+		    	success: function(result){
+		    		var $result = $(result).filter('#new-image').children();
+		    		$result.find("img").load(function(){
+		    			var imgSize = this.width;
+				    	sizedImage(imgSize, $result);
+	    		});
+		    },
+		    error: function(jqXHR, textStatus, errorThrown){
+		    	alert("That's embarrassing. Something went wrong!");
+		    	data = $.parseJSON(jqXHR.responseText);
+			    console.log(jqXHR);
+			    console.log(textStatus);
+			    console.log(errorThrown);
+		    }
+		});
+	};
+	requestImage();
 	});
 });
-
 
 
 function increment(selected){

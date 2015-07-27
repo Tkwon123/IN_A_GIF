@@ -10,15 +10,18 @@
 <body>
 <div class="jumbotron text-center">
 	<h1>IN A GIF</h1>
-	<% if @search %>
-		<h3>Currenting searching for: <span id="last-search"><%= @search %></span></h3>
-	<% else %>
+	<% if !@search %>
 		<h3>Kill an image, keep the other!</h3>
 	<% end %> 
+
+	<br>
+
 	<%= form_tag(new_search_path(@search), method: "get") do %>
 		<%= text_field_tag :search, params[:search], placeholder:"Enter a topic" %>
 		<%= submit_tag "Search", name: nil %>
 	<% end %>
+	<h5 id='search-sub'>Currenting searching for: <span id="last-search"><%= @search || 'cats' %></span></h5>
+
 </div>
 
 <div class="jumbotron">
@@ -63,8 +66,9 @@
 </div>
 
 <!-- NEW PICTURES WILL ENTER HERE -->
-<div class="container">
+<div class="centerize">
 	<div id="bucket">
+		<h3 class: center>Recent Items (Sorted):</h3>
 	</div>
 </div>
 

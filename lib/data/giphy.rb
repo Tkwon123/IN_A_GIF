@@ -14,12 +14,24 @@ module Giphy
 			@images = []
 			@ids = []
 			num_requests.to_i.times do |request|
-				data = open(@request_url).read
-				@json = JSON.parse(data)
-				@images << @json['data']["image_url"]
-				#@ids << @json['data']["id"]
+				@json = request_data
+				@images << @json['data']["image_url"]	
 			end
 			return @images
+		end
+
+		def request_data
+			data = open(@request_url).read
+			@json = JSON.parse(data)
+
+			#custom sizing for images
+			@image_size = @json['data']["image_url"]
+			correct_size?(@image_size)
+			return @json
+		end
+
+		def correct_size?(image)
+			if image.to_i > 500 then request_data end
 		end
 
 		def return_dupes(ary)

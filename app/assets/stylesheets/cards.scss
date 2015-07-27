@@ -8,9 +8,12 @@
 
 
 .panel-default {
-   background: rgba(0,0,0,0.4);
+   background: #EEEEEE!important;
 }
 
+#search-sub {
+	color: #717171;
+}
 .scores{
 	font-weight: bold;
 	font-size: 1.5em;
@@ -18,6 +21,7 @@
 
 .scoreboard{
 	text-align: center;
+	font-weight: bold;
 	font-sie: 1.3em;
 }
 
@@ -28,6 +32,7 @@
 }
 
 .jumbotron {
+	padding: 15px 15px 15px 15px!important;
 }
 
 .image{
@@ -39,6 +44,10 @@
 
 #picture2 {
 
+}
+
+.centerize{
+	text-align: center;
 }
 
 #score1{
@@ -53,7 +62,13 @@
 	font-weight: bold;
 }
 
+#last-search{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
 #bucket {
+	width: 500px;
 	display: block;
     margin-left: auto;
     margin-right: auto;

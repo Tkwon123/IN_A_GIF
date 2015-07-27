@@ -1,4 +1,4 @@
-
+/*
 $(function(){
 	$(".cards").on('click', 'li', function(e){
 		var target = (e.target);
@@ -48,4 +48,4 @@ $(function(){
 		setEvent: 'click', // use your event like 'mouseover', 'touchmove', etc.
 		template: 'Your string content goes here..' // or function (elem) { ... }, or selector $('.content')
 	});
-});
+});*/
