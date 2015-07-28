@@ -15,9 +15,10 @@ module Giphy
 			@ids = []
 			num_requests.to_i.times do |request|
 				@json = request_data
-				@images << @json['data']["image_url"]	
+				@images << @json['data']["image_url"]
+				@ids << @json['data']["id"]
 			end
-			return @images
+			return @images, @ids
 		end
 
 		def request_data
