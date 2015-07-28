@@ -25,7 +25,7 @@ module Giphy
 			@json = JSON.parse(data)
 
 			#custom sizing for images
-			@image_size = @json['data']["image_url"]
+			@image_size = @json['data']["image_width"]
 			correct_size?(@image_size)
 			return @json
 		end
