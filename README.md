@@ -14,7 +14,7 @@ Images are good-- and .gifs are even better, but with so many online, how do you
 
 ![confused](http://s3.amazonaws.com/giphygifs/media/v0eHX3n28wvoQ/giphy.gif)
 
-*IN A GIF* solves your problems by leveraging [GIPHY's API services](https://github.com/giphy/GiphyAPI) and allowing you to score a .gif show-down style to find your current feelings. 
+*IN A GIF* solves your problems by leveraging [GIPHY's API services](https://github.com/giphy/GiphyAPI) and allowing you to score a .gif show-down style to find your current feelings. Simply click on the image you want to kill while keeping the other.
 
 ![excited](http://s3.amazonaws.com/giphygifs/media/G3jZwNpYd7wnm/giphy.gif)
 
