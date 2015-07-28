@@ -26,7 +26,7 @@ No problem! *IN A GIF* keeps a scorecard of all past .gifs so you wont ever worr
 
 ![powerup](http://media.giphy.com/media/WnZT6RnEwbKP6/giphy.gif)
 
-May your conversations be forever emoted! 
+After finding your perfect .gif, stop and share it (hey! you might as well grab some runner-ups while you're at it). May your conversations be forever emoted! 
 
 ![salute](http://s3.amazonaws.com/giphygifs/media/SS7BbrR0YJ3R6/giphy.gif)
 
